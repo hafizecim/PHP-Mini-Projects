@@ -1,5 +1,5 @@
 <?php
-require_once "baglan.php";
+require_once "stok.php";
 
 // ID kontrolü
 if (!isset($_GET["id"])) {
@@ -11,12 +11,13 @@ $id = $_GET["id"];
 
 // Güncelleme formu gönderildiyse
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $baslik = $_POST["baslik"];
-    $icerik = $_POST["icerik"];
+    $ad = $_POST["ad"];
+    $fiyat = $_POST["fiyat"];
+    $stok_miktari = $_POST["stok_miktari"];
 
-    $sql = "UPDATE yazilar SET baslik = ?, icerik = ? WHERE id = ?";
+    $sql = "UPDATE urunler SET ad = ?, fiyat = ?, stok_miktari = ? WHERE id = ?";
     $stmt = $baglanti->prepare($sql);
-    $stmt->bind_param("ssi", $baslik, $icerik, $id);
+    $stmt->bind_param("ssi", $ad, $fiyat, $id);
 
     if ($stmt->execute()) {
         header("Location: index.php");
@@ -27,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Mevcut yazıyı çek
-$sql = "SELECT * FROM yazilar WHERE id = ?";
+$sql = "SELECT * FROM urunler WHERE id = ?";
 $stmt = $baglanti->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $sonuc = $stmt->get_result();
 
 if ($sonuc->num_rows == 0) {
-    echo "Yazı bulunamadı.";
+    echo "Stok bulunamadı.";
     exit();
 }
 
