@@ -34,10 +34,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="ad" required><br><br>
 
         <label>Fiyat:</label><br>
-        <input type="text" name="fiyat" required><br><br>
+        <input type="number" step="0.01" name="fiyat" required><br><br>
 
         <label>Stok Miktarı:</label><br>
-        <input type="text" name="stok_miktari" required><br><br>
+        <input type="number" name="stok_miktari" required><br><br>
 
         <button type="submit">Kaydet</button>
     </form>

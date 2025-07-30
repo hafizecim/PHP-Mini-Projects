@@ -1,7 +1,7 @@
 <?php
 require_once "baglan.php";
 
-if (!isset($_GET['id'])) {
+if (!isset($is_numeric['id'])) {
     echo "Silinecek ürün ID'si belirtilmedi.";
     exit();
 }

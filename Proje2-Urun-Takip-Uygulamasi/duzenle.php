@@ -56,10 +56,10 @@ $urun = $sonuc->fetch_assoc();
         <input type="text" name="ad" value="<?php echo htmlspecialchars($urun['ad']); ?>" required><br><br>
 
         <label>Fiyat:</label><br>
-        <input type="text" name="fiyat" value="<?php echo htmlspecialchars($urun['fiyat']); ?>" required><br><br>
+        <input type="number" step="0.01" name="fiyat" value="<?php echo htmlspecialchars($urun['fiyat']); ?>" required><br><br>
 
         <label>Stok Miktarı:</label><br>
-        <input type="text" name="stok_miktari" value="<?php echo htmlspecialchars($urun['stok_miktari']); ?>" required><br><br>
+        <input type="number" name="stok_miktari" value="<?php echo htmlspecialchars($urun['stok_miktari']); ?>" required><br><br>
 
         <button type="submit">Güncelle</button>
     </form>
